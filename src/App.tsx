@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { car } from 'ionicons/icons';
+import { car, people } from 'ionicons/icons';
 import ListVehicules from './pages/ListVehicules';
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,6 +31,8 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import DetailVehicule from './Components/DetailVehicule';
+import ListLocataires from './pages/ListLocataires';
+import { FormulaireAjoutVehicule } from './Components/Ajout/FormulaireAjoutVehicule';
 
 
 setupIonicReact();
@@ -43,9 +45,17 @@ const App: React.FC = () => (
           <Route exact path="/vehicules">
             <ListVehicules />
           </Route>
+          <Route exact path="/addVehicule">
+            <FormulaireAjoutVehicule />
+          </Route>
           <Route exact path="/">
             <Redirect to="/vehicules" />
           </Route>
+          <Route exact path="/locataires">
+            <ListLocataires />
+          </Route>
+
+
           <Route path="/vehicules/:id" component={DetailVehicule} />
         </IonRouterOutlet>
 
@@ -54,6 +64,10 @@ const App: React.FC = () => (
           <IonTabButton tab="vehicules" href="/vehicules">
             <IonIcon icon={car} />
             <IonLabel>Véhicules</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="locataires" href="/locataires">
+            <IonIcon icon={people} />
+            <IonLabel>Locataires</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

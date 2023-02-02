@@ -1,3 +1,5 @@
+import { VehiculeType } from "../Models/VehiculeType";
+
 class VehiculeService {
 
 
@@ -11,6 +13,21 @@ class VehiculeService {
         return fetch(`${process.env.REACT_APP_URI_VEHICULE}/${id}`)
             .then((response) => response.json())
             .catch((error) => console.error(error));
+    }
+
+    /**
+     * Méthode qui ajoute un véhicule dans la bdd
+     * @param vehicule VehiculeType
+     * @returns json
+     */
+    addNewVehicule(vehicule: VehiculeType) {
+        return fetch(process.env.REACT_APP_URI_VEHICULE as string, {
+            method: "POST",
+            body: JSON.stringify(vehicule),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json()).catch(err => console.log(err));
     }
 }
 

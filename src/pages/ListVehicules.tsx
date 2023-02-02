@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { VehiculeType } from '../Models/VehiculeType';
 import { vehiculeService } from '../Services/vehiculeService';
 import { Vehicule } from '../Layout/Vehicule';
+import { Link } from 'react-router-dom';
 
 const ListVehicules: React.FC = () => {
   const [vehicules, setVehicules] = useState<VehiculeType[]>([])
@@ -25,6 +26,7 @@ const ListVehicules: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
+        <Link to={'addVehicule'} ></Link>
         <IonList>
           {vehicules && vehicules.map((vehicule, index) => {
             return <IonItem key={index}>

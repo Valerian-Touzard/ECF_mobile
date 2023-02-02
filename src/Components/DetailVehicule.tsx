@@ -45,7 +45,7 @@ const DetailVehicule = () => {
                                 <IonText>Immatriculation: {vehicule?.imma}</IonText>
                             </IonItem>
                             <IonItem>
-                                <IonText>disponible: {vehicule?.dispo ? "Indisponible" : "Disponible"}</IonText>
+                                <IonText>disponible: {vehicule?.dispo ? "Disponible" : "Indisponible"}</IonText>
                             </IonItem>
                         </IonList>
                     </IonCardContent>
