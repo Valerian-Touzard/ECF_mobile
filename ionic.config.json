@@ -1,0 +1,7 @@
+{
+  "name": "ECF_mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
