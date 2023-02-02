@@ -29,6 +29,17 @@ class VehiculeService {
             }
         }).then(response => response.json()).catch(err => console.log(err));
     }
+
+    /**
+     * Méthode qui supprime un vehicule via son id
+     * @param idVehicule string
+     * @returns 
+     */
+    deleteVehicule(idVehicule: string) {
+        return fetch(process.env.REACT_APP_URI_VEHICULE + "/" + idVehicule, {
+            method: "DELETE",
+        }).then(response => response.json()).catch(err => console.log(err));
+    }
 }
 
 export const vehiculeService = Object.freeze(new VehiculeService());

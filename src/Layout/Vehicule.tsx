@@ -19,6 +19,7 @@ export const Vehicule = (props: unVehicule) => {
         <IonText>prix: {props.vehicule.prix}€</IonText>
         <IonText> état: {props.vehicule.etat}</IonText>
         <IonButton onClick={(e) => { e.preventDefault(); history.push(`vehicules/${props.vehicule.id}`) }}>Détail</IonButton>
+        <IonButton onClick={(e)=>{e.preventDefault(); history.replace(`supprimerVehicule/${props.vehicule.id}`)}}>Supprimer</IonButton>
       </IonCardContent>
     </IonCard>
   )

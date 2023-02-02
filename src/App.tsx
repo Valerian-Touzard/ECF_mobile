@@ -33,6 +33,7 @@ import './theme/variables.css';
 import DetailVehicule from './Components/DetailVehicule';
 import ListLocataires from './pages/ListLocataires';
 import { FormulaireAjoutVehicule } from './Components/Ajout/FormulaireAjoutVehicule';
+import SuppressionVehicule from './Components/Suppr/SuppressionVehicule';
 
 
 setupIonicReact();
@@ -57,6 +58,7 @@ const App: React.FC = () => (
 
 
           <Route path="/vehicules/:id" component={DetailVehicule} />
+          <Route path="/supprimerVehicule/:id" component={SuppressionVehicule} />
         </IonRouterOutlet>
 
 
