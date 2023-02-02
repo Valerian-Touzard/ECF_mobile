@@ -1,0 +1,16 @@
+{
+  "locataires": [],
+  "vehicules": [
+    {
+      "id": "sdkjfsdbfsbfsdhifiygsyfaojd",
+      "marque": "Citroen",
+      "modele": "Sport",
+      "type": "Voiture",
+      "imma": "AA-123-AA",
+      "etat": "A",
+      "prix": "500",
+      "dispo": false
+    }
+  ],
+  "locations": []
+}
