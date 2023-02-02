@@ -1,8 +1,8 @@
 import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonItem, IonList, IonPage, IonText, IonTitle, IonToolbar } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { VehiculeType } from '../Models/VehiculeType'
-import { vehiculeService } from '../Services/vehiculeService'
+import { VehiculeType } from '../../Models/VehiculeType'
+import { vehiculeService } from '../../Services/vehiculeService'
 
 const DetailVehicule = () => {
     const { id } = useParams() as { id: string }
@@ -15,7 +15,7 @@ const DetailVehicule = () => {
     const getOneVehicule = (id: string) => {
         vehiculeService.getOneVehicule(id)
             .then((data) => setVehicule(data))
-            .catch((error) => setVehicule(error))
+            .catch((error) => console.error(error))
     }
     return (
         <IonPage>

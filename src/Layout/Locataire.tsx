@@ -1,6 +1,6 @@
-import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react'
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { LocataireType } from '../Models/LocataireType'
 
 export type unLocataire = {
@@ -8,16 +8,19 @@ export type unLocataire = {
 }
 
 export const Locataire = (props: unLocataire) => {
+  const history = useHistory()
 
   return (
-    <Link to={`modifyLocataire/${props.locataire.id}`}>
-      <IonCard>
-        <IonCardHeader>
-          <IonCardTitle>{props.locataire.prenom} {props.locataire.nom}</IonCardTitle>
-          <IonCardSubtitle>{props.locataire.tel}</IonCardSubtitle>
-        </IonCardHeader>
-      </IonCard>
-    </Link>
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>{props.locataire.prenom} {props.locataire.nom}</IonCardTitle>
+        <IonCardSubtitle>{props.locataire.tel}</IonCardSubtitle>
+      </IonCardHeader>
+      <IonCardContent>
+        <IonButton onClick={(e) => { e.preventDefault(); history.push(`locataires/${props.locataire.id}`) }}>Detail</IonButton>
+        {/* <IonButton onClick={}>Supprimer</IonButton> */}
+      </IonCardContent>
+    </IonCard>
 
   )
 }

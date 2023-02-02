@@ -12,6 +12,13 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { car, people } from 'ionicons/icons';
 import ListVehicules from './pages/ListVehicules';
+import DetailVehicule from './Components/Detail/DetailVehicule';
+import ListLocataires from './pages/ListLocataires';
+import { FormulaireAjoutVehicule } from './Components/Ajout/FormulaireAjoutVehicule';
+import SuppressionVehicule from './Components/Suppr/SuppressionVehicule';
+import { FormulaireAjoutLocataire } from './Components/Ajout/FormulaireAjoutLocataire';
+import DetailLocataire from './Components/Detail/DetailLocataire';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -30,10 +37,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import DetailVehicule from './Components/DetailVehicule';
-import ListLocataires from './pages/ListLocataires';
-import { FormulaireAjoutVehicule } from './Components/Ajout/FormulaireAjoutVehicule';
-import SuppressionVehicule from './Components/Suppr/SuppressionVehicule';
+
 
 
 setupIonicReact();
@@ -55,10 +59,15 @@ const App: React.FC = () => (
           <Route exact path="/locataires">
             <ListLocataires />
           </Route>
+          <Route exact path="/addLocataire">
+            <FormulaireAjoutLocataire />
+          </Route>
 
 
           <Route path="/vehicules/:id" component={DetailVehicule} />
           <Route path="/supprimerVehicule/:id" component={SuppressionVehicule} />
+
+          <Route path="/locataires/:id" component={DetailLocataire} />
         </IonRouterOutlet>
 
 

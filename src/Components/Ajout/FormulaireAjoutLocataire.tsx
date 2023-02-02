@@ -12,7 +12,7 @@ export const FormulaireAjoutLocataire = () => {
         prenom: "",
         email: "",
         tel: "",
-        dateNaiss: "",
+        dateNaiss: "01-01-2015",
     });
 
 
@@ -22,6 +22,16 @@ export const FormulaireAjoutLocataire = () => {
      */
     const handleChange = (event: any) => {
         setNewLocataire({ ...newLocataire, [event.target.name]: event.target.value })
+    }
+
+    /**
+     * Enregistre et formate la date pour qu'elle puisse être enregistrer en bdd
+     * @param event 
+     */
+    const handleChangeDate = (event:any) =>{
+        event.preventDefault();
+        let date = new Date(event.target.value).toISOString()
+        newLocataire.dateNaiss = date;
     }
 
     /**
@@ -63,7 +73,7 @@ export const FormulaireAjoutLocataire = () => {
                             <IonLabel>date de naissance:</IonLabel>
                             <IonDatetimeButton datetime='dateTime'></IonDatetimeButton>
                             <IonModal keepContentsMounted={true}>
-                                <IonDatetime name='dateNaiss' onIonChange={handleChange} id='dateTime' presentation='date'>
+                                <IonDatetime name='dateNaiss' onIonChange={handleChangeDate} id='dateTime' presentation='date'>
                                     <span slot="title">Votre date de naissance</span>
                                 </IonDatetime>
                             </IonModal>
@@ -77,7 +87,6 @@ export const FormulaireAjoutLocataire = () => {
                     <IonButton type="submit" onClick={addNewLocataire} className="bouton">Ajouter client</IonButton>
                 </form>
             </IonContent>
-
         </IonPage>
     )
 }
